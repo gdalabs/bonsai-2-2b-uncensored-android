@@ -1,0 +1,12 @@
+{
+  "name": "AtomicChat Bonsai 2 2B refusal-reduction LoRA",
+  "repository": "AtomicChat/Ternary-Bonsai-2-2B-Uncensored-LoRA-GGUF",
+  "revision": "3ddae94b35c44b7a07e927aea82618ce7d447eef",
+  "filename": "Ternary-Bonsai-2-2B-Uncensored-LoRA.gguf",
+  "size_bytes": 1187136,
+  "sha256": "72e3e2cfc8ed963015a94dde0977e9cb87354d1d7785b9ed5f56ae13c72c92e8",
+  "base_sha256": "36061ad406df8a4903a6db005be350c50fabfaf717f9ef0acf4b76adcd9929fa",
+  "base_format": "PTQ1_0",
+  "scale": 1,
+  "license": "Apache-2.0"
+}

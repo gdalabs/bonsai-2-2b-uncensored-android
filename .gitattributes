@@ -1,0 +1,2 @@
+# Preserve third-party license and notice text verbatim.
+docs/notices/*.txt -whitespace

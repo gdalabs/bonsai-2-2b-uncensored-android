@@ -1,0 +1,40 @@
+{
+  "version": "v0.1.1-uncensored-preview",
+  "validated_at": "2026-10-28T17:16:20.402638+00:00",
+  "application_id": "org.meshmind.app.uncensored",
+  "artifacts": [
+    {
+      "file": "MeshMind-0.1.1-uncensored-arm64-bundled-debug.apk",
+      "bytes": 464422907,
+      "sha256": "b1113b9f8459667908cefdc50ea5e6988e8d1936f05689d411906e84447036f2"
+    },
+    {
+      "file": "MeshMind-0.1.1-uncensored-arm64-androidTest.apk",
+      "bytes": 820201,
+      "sha256": "26d046ff4f86ef5a8d4a38e963a54a0418a8f0117980aaf86dbeea13963ed929"
+    }
+  ],
+  "jvm": {
+    "tests": 22,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "lint": {
+    "Warning": 10
+  },
+  "host_adapter_integration": "passed",
+  "host_standard_Q2_0_integration": "passed",
+  "asan_ubsan_leak_checks": "passed; application adapter instrumented, upstream uninstrumented",
+  "apk_checks": {
+    "no_internet_permission": true,
+    "arm64_only": true,
+    "elf_zip_alignment_kib": 16,
+    "base_and_adapter_integrity": true,
+    "debug_signatures": true,
+    "license_assets_match_public_source": true,
+    "identity_reference_scan": "passed; benign AndroidX layout-symbol substrings excluded"
+  },
+  "actual_android_execution": "pending",
+  "publisher_benchmarks_independently_replicated": false
+}

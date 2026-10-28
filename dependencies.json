@@ -1,0 +1,31 @@
+{
+  "prism_llama_cpp": {
+    "url": "https://github.com/PrismML-Eng/llama.cpp",
+    "commit": "5ae2e169eac202d2f065606539c3ad6ab8b51333",
+    "license": "MIT"
+  },
+  "official_model": {
+    "url": "https://huggingface.co/prism-ml/Ternary-Bonsai-2-2B-gguf",
+    "revision": "683f7be2629342a50987627b40881e54761a2430",
+    "license": "Apache-2.0"
+  },
+  "jdk": "17",
+  "gradle": "8.14.3",
+  "agp": "8.13.2",
+  "kotlin": "2.2.10",
+  "compileSdk": 36,
+  "targetSdk": 36,
+  "minSdk": 28,
+  "ndk": "28.2.13676358",
+  "cmake": "3.31.6",
+  "abi": "arm64-v8a",
+  "compose_bom": "2025.08.00",
+  "coroutines": "1.10.2",
+  "optional_refusal_adapter": {
+    "url": "https://huggingface.co/AtomicChat/Ternary-Bonsai-2-2B-Uncensored-LoRA-GGUF",
+    "revision": "3ddae94b35c44b7a07e927aea82618ce7d447eef",
+    "sha256": "72e3e2cfc8ed963015a94dde0977e9cb87354d1d7785b9ed5f56ae13c72c92e8",
+    "license": "Apache-2.0",
+    "use": "Separate experimental PTQ1_0 Android build only; do not merge into ternary weights"
+  }
+}
