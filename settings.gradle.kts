@@ -3,5 +3,5 @@ dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories { google(); mavenCentral() }
 }
-rootProject.name = "MeshMind"
+rootProject.name = "bonsai-2-2b-uncensored-android"
 include(":android-app")

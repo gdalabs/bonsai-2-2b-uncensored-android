@@ -1,12 +1,16 @@
 # Preview validation
 
-- JVM: 22 tests, zero failures/errors/skips.
-- ARM64 debug and instrumentation APKs compile. Lint: zero errors, 10 warnings.
-- Actual host PTQ1_0 inference with the pinned adapter: arithmetic at scale 0/1, deterministic restoration, cancellation, missing/duplicate adapter handling and unload/reload passed.
-- Existing Q2_0 runtime integration: model format/special tokens, repeat/reset, cancellation, invalid settings, context overflow and unload passed.
-- Both host integration suites passed ASan/UBSan and leak checking. Upstream libraries were uninstrumented; this is not a full native memory-safety audit.
-- Final APK: no Internet permission, ARM64 ABI, 16 KiB ELF/ZIP alignment, model hash/size, adapter hash/size and debug signature checks passed. Packaged license assets match the source distribution. Exact sizes and SHA-256 values are in [VALIDATION.json](VALIDATION.json) and the release's SHA256SUMS.
+Version **0.1.2-uncensored-preview** uses the refreshed Chat, Models and Settings UI with local CommonMark rendering. Package IDs and prior preview signing identities are preserved for updates. The release APK is non-debuggable but uses Android's development signing identity; this is not a production-signed release.
 
-Actual execution of this new adapter APK on Android is pending. No mobile performance numbers, broad quality-retention score or general refusal-removal guarantee is claimed. The publisher's benchmark results have not been independently replicated here.
+- ARM64 release and matching debug instrumentation APKs compiled.
+- JVM: **46 tests**, zero failures, errors or skips, including Markdown, reasoning presentation and backwards-compatible history decoding.
+- Lint release: **0 errors, 1 warnings**.
+- Packaged checks: no Internet permission, ARM64-only native libraries, 16 KiB ELF/ZIP alignment, pinned model size/SHA-256 and source-matching license assets.
+- App, instrumentation and previous release signing certificates match.
+- Four English UI previews render the actual Compose source. These are fixed-content layout previews, not physical-device captures or inference evidence. See [renderer](tools/ui-preview).
 
-The Android application and native runtime sources match the artifact build. The host CMake project contains only the benchmark and integration tests; Android build targets and flags are unchanged.
+The inference runtime source is unchanged in this UI update. Earlier host validation is marked inherited in [VALIDATION.json](VALIDATION.json); it was not repeated as a new phone test.
+
+Actual execution of this version on an Android phone, device performance, thermal/battery measurements and production signing remain pending. No universal refusal-removal or accuracy guarantee is claimed.
+
+Exact artifact sizes and SHA-256 values are in [VALIDATION.json](VALIDATION.json) and release SHA256SUMS.

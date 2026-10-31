@@ -57,10 +57,10 @@ android {
         applicationId = if (uncensored) "org.meshmind.app.uncensored" else "org.meshmind.app"
         minSdk = 28
         targetSdk = 36
-        versionCode = if (uncensored) 2 else 1
-        versionName = if (uncensored) "0.1.1-uncensored-preview" else "0.1.0-phase1" + if (bundledModel != null) "-bundled" else ""
+        versionCode = if (uncensored) 3 else 1
+        versionName = if (uncensored) "0.1.2-uncensored-preview" else "0.1.0-phase1" + if (bundledModel != null) "-bundled" else ""
         buildConfigField("boolean", "REFUSAL_ADAPTER", uncensored.toString())
-        manifestPlaceholders["appLabel"] = if (uncensored) "MeshMind Uncensored" else "MeshMind"
+        manifestPlaceholders["appLabel"] = if (uncensored) "Bonsai 2 2B Uncensored" else "MeshMind"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         ndk { abiFilters += if (emulatorBuild) "x86_64" else "arm64-v8a" }
         externalNativeBuild { cmake {
@@ -79,7 +79,7 @@ android {
     androidResources { noCompress += "gguf" }
     testOptions { unitTests.isReturnDefaultValues = true }
     buildTypes {
-        release { isMinifyEnabled = false }
+        release { isMinifyEnabled = false; isDebuggable = false; signingConfig = signingConfigs.getByName("debug") }
         debug { if (emulatorBuild) { applicationIdSuffix = ".emulator"; versionNameSuffix = "-emulator" } }
     }
     packaging { jniLibs.useLegacyPackaging = false }
@@ -88,6 +88,9 @@ if (prepareBundledModel != null) tasks.matching { it.name == "preBuild" }.config
 androidComponents { beforeVariants(selector().withBuildType("release")) { if (emulatorBuild) it.enable = false } }
 dependencyLocking { lockAllConfigurations() }
 dependencies {
+    implementation("org.commonmark:commonmark-ext-gfm-strikethrough:0.31.0")
+    implementation("org.commonmark:commonmark-ext-gfm-tables:0.31.0")
+    implementation("org.commonmark:commonmark:0.31.0")
     implementation(platform("androidx.compose:compose-bom:2025.08.00"))
     implementation("androidx.compose.material3:material3")
     implementation("androidx.compose.foundation:foundation")

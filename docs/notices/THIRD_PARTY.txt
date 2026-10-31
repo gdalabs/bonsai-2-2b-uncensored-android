@@ -38,3 +38,5 @@ Optional refusal-reduction preview: AtomicChat/Ternary-Bonsai-2-2B-Uncensored-Lo
 Copyright AtomicChat contributors. Apache License 2.0.
 https://huggingface.co/AtomicChat/Ternary-Bonsai-2-2B-Uncensored-LoRA-GGUF
 Only bundled in the separate experimental preview. The unmodified base model remains by PrismML.
+
+Markdown: commonmark-java 0.31.0 (core, GFM tables and strikethrough), BSD-2-Clause. Full text: commonmark-BSD-2-Clause.txt. Shared UI source: Apache-2.0, Copyright 2026 GDA Labs.

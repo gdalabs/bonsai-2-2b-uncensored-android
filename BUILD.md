@@ -12,15 +12,15 @@ python3 scripts/fetch-adapter.py artifacts/uncensored-adapter.gguf
   -PmeshmindBundledModel=../artifacts/bonsai-PTQ1_0.gguf \
   -PmeshmindBundledFormat=PTQ1_0 \
   -PmeshmindBundledAdapter=../artifacts/uncensored-adapter.gguf \
-  :android-app:assembleDebug :android-app:assembleDebugAndroidTest \
-  :android-app:testDebugUnitTest :android-app:lintDebug
+  :android-app:assembleRelease :android-app:assembleDebugAndroidTest \
+  :android-app:testDebugUnitTest :android-app:lintRelease
 python3 scripts/check-apk.py --bundled --uncensored \
-  android-app/build/outputs/apk/debug/android-app-debug.apk
+  android-app/build/outputs/apk/release/android-app-release.apk
 ```
 
 Gradle file properties are relative to `android-app`. The downloaded base and adapter must match the pinned sizes and SHA-256 values. Network access is used only to provision build dependencies and weights on the developer machine. The application has no Internet permission.
 
-Debug APKs are installable test artifacts. Release builds are unsigned until a distributor supplies a signing process. Do not commit signing material. The build uses pinned source and toolchain versions; byte-identical APK reproducibility has not been established.
+Debug APKs are installable test artifacts. Release builds are non-debuggable and signed with the existing Android debug identity for preview updates; a production signing identity is still pending. Do not commit signing material. The build uses pinned source and toolchain versions; byte-identical APK reproducibility has not been established.
 
 ## Host integration
 
@@ -40,7 +40,7 @@ The host adapter test runs actual inference and checks arithmetic with the adapt
 Install the app and matching test APK on a consenting test phone, then run the inference test:
 
 ```sh
-adb install -r android-app/build/outputs/apk/debug/android-app-debug.apk
+adb install -r android-app/build/outputs/apk/release/android-app-release.apk
 adb install -r android-app/build/outputs/apk/androidTest/debug/android-app-debug-androidTest.apk
 adb shell am instrument -w -e runModelTests true \
   -e class org.meshmind.app.RefusalAdapterDeviceTest \

@@ -1,40 +1,76 @@
 {
-  "version": "v0.1.1-uncensored-preview",
-  "validated_at": "2026-10-28T17:16:20.402638+00:00",
+  "schema": 2,
+  "date": "2026-10-31",
+  "status": "experimental non-debuggable preview; Android debug signing identity",
+  "version": "0.1.2-uncensored-preview",
   "application_id": "org.meshmind.app.uncensored",
-  "artifacts": [
-    {
-      "file": "MeshMind-0.1.1-uncensored-arm64-bundled-debug.apk",
-      "bytes": 464422907,
-      "sha256": "b1113b9f8459667908cefdc50ea5e6988e8d1936f05689d411906e84447036f2"
+  "bundled_model": {
+    "name": "Official Ternary Bonsai 2 2B PTQ1_0",
+    "version": "683f7be2629342a50987627b40881e54761a2430",
+    "base_architecture": "qwen35",
+    "gguf_format": "PTQ1_0",
+    "sha256": "36061ad406df8a4903a6db005be350c50fabfaf717f9ef0acf4b76adcd9929fa",
+    "size_bytes": 429183456,
+    "required_backend": "prism-5ae2e169-cpu",
+    "chat_template": "embedded",
+    "context_length": 4096,
+    "special_tokens": [
+      "<|im_start|>",
+      "<|im_end|>",
+      "<think>",
+      "</think>"
+    ],
+    "provenance": "https://huggingface.co/prism-ml/Ternary-Bonsai-2-2B-gguf/tree/683f7be2629342a50987627b40881e54761a2430",
+    "trained_context_length": 262144
+  },
+  "checks": {
+    "arm64_release_build": true,
+    "instrumentation_apk_compiled": true,
+    "jvm_tests": {
+      "tests": 46,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
     },
-    {
-      "file": "MeshMind-0.1.1-uncensored-arm64-androidTest.apk",
-      "bytes": 820201,
-      "sha256": "26d046ff4f86ef5a8d4a38e963a54a0418a8f0117980aaf86dbeea13963ed929"
-    }
-  ],
-  "jvm": {
-    "tests": 22,
-    "failures": 0,
-    "errors": 0,
-    "skipped": 0
-  },
-  "lint": {
-    "Warning": 10
-  },
-  "host_adapter_integration": "passed",
-  "host_standard_Q2_0_integration": "passed",
-  "asan_ubsan_leak_checks": "passed; application adapter instrumented, upstream uninstrumented",
-  "apk_checks": {
+    "lint_errors": 0,
+    "lint_warnings": 1,
     "no_internet_permission": true,
     "arm64_only": true,
-    "elf_zip_alignment_kib": 16,
-    "base_and_adapter_integrity": true,
-    "debug_signatures": true,
-    "license_assets_match_public_source": true,
-    "identity_reference_scan": "passed; benign AndroidX layout-symbol substrings excluded"
+    "elf_and_zip_16k_alignment": true,
+    "bundled_model_size_and_sha256": true,
+    "non_debuggable": true,
+    "app_and_test_signatures_verified": true,
+    "previous_release_signing_identity_preserved": true,
+    "signing_certificate_sha256": "1e221eeb85f6af8f5aa919b65630477b1ed87cdf1822c0d77b7de98b91d02051",
+    "packaged_license_assets_match_source": 8
   },
-  "actual_android_execution": "pending",
-  "publisher_benchmarks_independently_replicated": false
+  "ui_previews": {
+    "renderer": "Paparazzi 2.0.0-alpha04",
+    "device_layout": "Pixel 5",
+    "locale": "en",
+    "count": 4,
+    "content": "Fixed English sample conversation; no model inference; not physical-device captures"
+  },
+  "remaining": [
+    "Actual Android phone inference and instrumentation of this version",
+    "Device RAM, latency, thermal and battery measurements",
+    "Production signing"
+  ],
+  "artifacts": [
+    {
+      "name": "Bonsai-2-2B-Uncensored-Android-0.1.2-arm64-PTQ1_0-bundled-preview.apk",
+      "bytes": 459633104,
+      "sha256": "ea47264dc4cdd75c4eb962d9044775148a45a49b149c4c81e7f688ce9acc047c"
+    },
+    {
+      "name": "Bonsai-2-2B-Uncensored-Android-0.1.2-arm64-androidTest.apk",
+      "bytes": 835534,
+      "sha256": "23f1efef02dbcfa953b0711432a36f9f358ff4e8cdc2d0035aee4295a822136f"
+    }
+  ],
+  "inherited_native_validation": {
+    "host_adapter_and_standard_runtime_asan_ubsan_leak_checks": true,
+    "upstream_instrumented": false,
+    "native_source_changed_in_this_version": false
+  }
 }
